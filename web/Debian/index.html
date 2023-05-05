@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ブラウザとスマホのアイコン指定-->
+    <link rel="icon" type="image/png" href="./img/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/icon.png">
+    <script src="script/main.js" defer></script>
+    <!--現状jQuery必要なく、むしろ悪さをしてる気が...-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <!--style.cssの前にreset.cssを読み込む-->
+    <link rel="stylesheet" href="css/reset.css">
+    <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+    <link rel="stylesheet" href="css/style.css">
+    <title>aimlinux</title>
+</head>
+
+
+<body>
+    <div id="container">
+
+        <!--ヘッダー-->
+        <header id="header">
+            
+            <div id='container-upper'>
+                <h1 class="header-title">
+                    <a class="title-text" href="index.html">aimlinux</a>
+                </h1>
+
+                <div class="hamburger-menu">
+                    <input type="checkbox" id="menu-btn-check">
+                    <label for="menu-btn-check" class="menu-btn"><span></span></label>
+                    <!--ここからメニュー-->
+                    <div class="menu-content">
+                        <ul>
+                            <li>
+                                <a href="index.html">ホーム</a>
+                            </li>
+                            <li>
+                                <a href="project/placement.html">プロジェクト置き場</a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/aim_linux">Twitter</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/aimlinux">GitHub</a>
+                            </li>
+                            <li>
+                                <a href="#area-1">製作者</a>
+                            </li>
+                            <li>
+                                <a href="sent_php/contact.html" onclick="contact_click()">お問い合わせ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--ここまでメニュー-->
+                </div>
+            </div>
+            <div id='container-upper-support'>
+            </div>
+        </header>
+
+        
+        <!--メインエリア-->
+        <main id="main">
+
+            <div id="mainvisual-first">
+                <div class="mainvisual-text">
+
+                    <p class="mainvisual-title">Thanks for </p>
+                    <p class="mainvisual-title">opening my site.</p>
+                    <a class="mainvisual-btn" href="#area-1">プロフィールへ ⇒</a>
+                </div>
+            </div>
+
+            <div id="mainvisual-second">
+                <div class="mainvisual-text">
+                    <p class="mainvisual-title">Webアプリ開発など</p>
+                    <!--「target="_blank"」によって別のページで開かせる-->
+                    <a class="mainvisual-btn" href="project/placement.html" target="_blank">⇚  プロジェクトへ</a>
+                </div>
+            </div>
+
+            <div id="mainvisual-jump">
+                <div class="mainvisual-text">
+                    <p id="area-1">ジャンプ先</p>
+                </div>
+            </div>
+
+
+            <section id="detail">
+
+                <div class="main-box-1">
+                    <h1 class="main-box-title">プロフィール</h1>
+                    <p class="main-box-text">
+                        <br>
+                        平成生まれの高専生。<br>
+                        2020年頃からPCを扱い始めて現在に至る平凡プログラマーです。 <br>
+                        Linuxディストリビューションの中ではLinuxMintが好み。<br>
+                        エディタはVim派です。<br>
+                        <br>
+                        主に使っているプログラミング言語について<br>
+                        <br>
+                        <table>
+                            <tr>
+                                <th>python</th>
+                                <td>プログラミング言語の中では最初に触った言語でもあり、一番多くの時間触れています。
+                            </tr>
+                            <tr>
+                                <th>php</th>
+                                <td>主にhtmlに埋め込んでサーバーサイドで使ってます。あまり詳しくはないです。</td>
+                            </tr>
+                            <tr>
+                                <th>C, C++</th>
+                                <td>ポインタぐらいまでなら大体理解できます。</td>
+                            </tr>
+                            <tr>
+                                <th>HTML, CSS</th>
+                                <td>Web製作は触れる機会が少ないので、未だに調べながらコーティングしてます。</td>
+                            </tr>
+                            <tr>
+                                <th>JavaScript</th>
+                                <td>いつもお世話になってます。</td>
+                            </tr>
+                            <tr>
+                                <th>Ruby</th>
+                                <td>地元で生まれた言語なので愛着があります。（松江高専ではない...）</td>
+                            </tr>
+                            <tr>
+                                <th>Java, C#</th>
+                                <td>Windowsのアプリを開発するために少しだけ使ったことがあります。</td>
+                            </tr>
+                        </table>
+                    </p>
+                </div>
+
+                <div class="box-space"></div>
+                <div class="box-space"></div>
+                
+                <div class="main-box-1">
+                    <h1 class="main-box-title">リリースノート</h1>
+                    <p class="main-box-text" id="release-notes">
+                        
+                        <!--open要素を追加することで最初から開いた状態-->                
+                        <details open>
+                            <summary>バージョン1.0</summary>
+
+                            <h3>　v1.0 リリースノート</h3>
+                            <hr>
+                            <p>・リリース日<br></p>
+                            <p>　2023年4月08日<br><br></p>
+                            <p>・リリースバージョン<br></p>
+                            <p>　v1.0</p>
+                            
+                            <h3>　概要</h3>
+                            <hr>
+                            <p>webサーバーへアップロードしました。</p>
+    
+                            <h3>　目的</h3>
+                            <hr>
+                            <p>webサーバーへのアップロード。</p>
+
+                            <h3>　備考</h3>
+                            <hr>
+                            <p>お問い合わせページは現在使うことが出来ません。</p>
+                            <p>プロジェクトは随時更新していきます。<br><br><br><br></p>
+
+                        </details>
+
+                    </p>
+                </div>
+
+                <div class="box-space"></div>
+                <div class="box-space"></div>
+                <div class="box-space"></div>
+
+            </section>
+            
+        </main>
+
+        <!--フッター-->
+        <footer id="footer">
+            <div class="footer-area">
+                <div class="col-1">
+                    <h4><a class="footer-homepage" href="#"> aimlinux </a></h4>
+                </div>
+                <div class="col-4">
+                    <h4>Legal</h4>
+                    <ul class="footer-list">
+                        <li><a class="footer-link" href="html/privacy.html">利用規約</a></li>
+                        <li><a class="footer-link" href="html/privacy.html">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <h4>Links</h4>
+                    <ul class="footer-list">
+                        <li><a class="footer-link" href="https://twitter.com/aim_linux" target="_blank">Twitter</a></li>
+                        <li><a class="footer-link" href="https://github.com/aimlinux" target="_blank">GitHub</a></li>
+                        <li><a class="footer-link" href="https://qiita.com/aim_linux" target="_blank">Qiita</a></li>
+                    </ul>
+                </div>
+                <div class="col-2">
+                    <h4>Guides</h4>
+                    <ul class="footer-list">
+                        <li><a class="footer-link" href="#area-1">製作者</a></li>
+                        <li><a class="footer-link" href="./sent_php/contact.html" onclick="contact_click()">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <hr>
+                    <p>@2023 aim_linux</p>
+                </div>
+            </div>
+        </footer>
+
+        <!--ページトップへ...-->
+        <div id="page-top">
+            <a href="#">
+                PageTop
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
