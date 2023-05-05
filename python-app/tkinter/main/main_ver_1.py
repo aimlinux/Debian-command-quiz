@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog 
 from tkinter import messagebox 
+import tkinter.ttk as ttk
 import time
 import random as rand
 import sys
@@ -19,6 +20,7 @@ button_4 = "オプション"
 
 
 # ウィンドウが生成されたフラグを取得するため（各ウィンドウが開いたときTrue、閉じたときFalseへ）
+#global count_main, count_beginner, count_intermediate, count_advanced
 count_main = False
 count_beginner = False
 count_intermediate = False
@@ -45,6 +47,9 @@ class Application(tk.Frame):
         
     def create_widgets(self):
         
+        global count_main
+        count_main = True
+        
         global pw_main, fm_main, fm_toolbar
         
         
@@ -56,8 +61,6 @@ class Application(tk.Frame):
         fm_main = tk.Frame(pw_main, bd=15, bg="aqua", relief="ridge")
         pw_main.add(fm_main)
         
-        global count_main
-        count_main = True
     # -------- メインフレームのオブジェクト作成 --------
     
         
@@ -100,6 +103,10 @@ class Application(tk.Frame):
     #初級偏
     def create_beginner(self):
         
+        global count_beginner, count_main
+        count_beginner = True
+        count_main = False
+        
         global fm_beginner, pw_beginner
         pw_main.destroy()
         
@@ -108,12 +115,51 @@ class Application(tk.Frame):
         
         fm_beginner = tk.Frame(bd=15, bg=main_bg, relief="ridge")
         pw_beginner.add(fm_beginner)
-                
-        global count_beginner, count_main
-        count_beginner = True
-        count_main = False
-    # -------- メインフレームのオブジェクト作成 --------
     
+    
+        '''
+    #プログレスバーの更新
+    def var_start(self, value_bar):
+        progressbar.configure(value=value_bar)
+    
+    # -------- progressbar作成 --------
+        bar_style = ttk.Style()
+        bar_style.theme_use("classic")
+        bar_style.configure("Horizontal.TProgressbar")
+        progressbar = ttk.Progressbar(fm_beginner, orient="horizontal", length=200, mode="indeterminate", style="Horizontal.TProgressbar")
+        progressbar.pack(expand=True, side=tk.BOTTOM)
+        
+        #text_label = tk.StringVar()
+        #text_label.set("0")
+        #label = tk.Label(fm_beginner, textvariable=text_label)
+        #label.pack(expand=True, side=tk.BOTTOM)
+        
+        maximum_bar = 300
+        value_bar = 0
+        div_bar = 1
+        progressbar.configure(maximum=maximum_bar, value=value_bar)
+        progressbar_num = 0
+
+        for i in range(maximum_bar):
+            value_bar += div_bar
+            #text_label.set(str(value_bar))        
+
+            print("num = " + str(progressbar_num))
+            progressbar += 1
+            
+            if value_bar == maximum_bar:
+                progressbar.after(1, self.var_start(value_bar))
+                print("num = " + str(progressbar_num))
+                #text_label.set("終了しました")
+                fm_beginner.destroy()
+            
+            else:
+                progressbar.after(1, self.var_start(value_bar))
+                progressbar.update()
+        '''
+    
+    
+    # -------- メインフレームのオブジェクト作成 --------
         
         # ボタンを作成してツールバーに配置
         fm_toolbar = tk.Frame(fm_beginner, bg=main_bg)
@@ -128,10 +174,17 @@ class Application(tk.Frame):
         toolbar_button4 = tk.Button(fm_toolbar, text=button_4, bg="#fff")
         toolbar_button4.pack(side=tk.LEFT, padx=2, pady=2)
         
+        
+        
+        print('DEBUG:----{}----'.format(sys._getframe().f_code.co_name)) if self.DEBUG_LOG else ""
     
     
     #中級偏
     def create_intermediate(self):
+                
+        global count_intermediate, count_main
+        count_intermediate = True
+        count_main = False
         
         global fm_intermediate, pw_intermediate
         pw_main.destroy()
@@ -141,10 +194,7 @@ class Application(tk.Frame):
         
         fm_intermediate = tk.Frame(bd=15, bg=main_bg, relief="ridge")
         pw_intermediate.add(fm_intermediate)
-                
-        global count_intermediate, count_main
-        count_intermediate = True
-        count_main = False
+        
     # -------- メインフレームのオブジェクト作成 --------
     
         
@@ -162,9 +212,16 @@ class Application(tk.Frame):
         toolbar_button4.pack(side=tk.LEFT, padx=2, pady=2)
         
         
+        
+        print('DEBUG:----{}----'.format(sys._getframe().f_code.co_name)) if self.DEBUG_LOG else ""
+        
     
     #上級編
     def create_advanced(self):
+                
+        global count_advanced, count_main
+        count_advanced = True
+        count_main = False
         
         global fm_advanced, pw_advanced
         pw_main.destroy()
@@ -174,10 +231,7 @@ class Application(tk.Frame):
         
         fm_advanced = tk.Frame(bd=15, bg=main_bg, relief="ridge")
         pw_advanced.add(fm_advanced)
-                
-        global count_advanced, count_main
-        count_advanced = True
-        count_main = False
+        
     # -------- メインフレームのオブジェクト作成 --------
     
         
@@ -194,10 +248,16 @@ class Application(tk.Frame):
         toolbar_button4 = tk.Button(fm_toolbar, text=button_4, bg="#fff")
         toolbar_button4.pack(side=tk.LEFT, padx=2, pady=2)
         
+        
+        
+        print('DEBUG:----{}----'.format(sys._getframe().f_code.co_name)) if self.DEBUG_LOG else ""
     
     
     
+    
+    # タイトルへ戻る
     def return_title(self):
+        global count_main, count_beginner, count_intermediate, count_advanced
         
         if count_main == True:
             pw_main.destroy()
@@ -221,8 +281,7 @@ class Application(tk.Frame):
         
         
         return 0
-    
-    
+
         
         
 # 実行
