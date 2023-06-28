@@ -87,9 +87,9 @@ class Application(tk.Frame):
         space_label = tk.Label(fm_main, text="", bg=main_bg, height=7)
         space_label.pack(side=tk.TOP)
     
-        start_button = tk.Button(fm_main, text=" 初級 ", font=(main_font, 20), width=30, command=self.create_beginner)
+        start_button = tk.Button(fm_main, text="  ", font=(main_font, 20), width=30, command=self.create_beginner)
         start_button.pack(side=tk.TOP, pady=10)
-        start_button = tk.Button(fm_main, text=" 中級 ", font=(main_font, 20), width=30, command=self.create_intermediate)
+        start_button = tk.Button(fm_main, text="  ", font=(main_font, 20), width=30, command=self.create_intermediate)
         start_button.pack(side=tk.TOP, pady=10)
         start_button = tk.Button(fm_main, text=" 上級 ", font=(main_font, 20), width=30, command=self.create_advanced)
         start_button.pack(side=tk.TOP, pady=10)
